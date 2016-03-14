@@ -1,0 +1,29 @@
+<style type="text/css">
+	.txt{
+		line-height: 70px !important;
+	}
+</style>
+<ion-view title="Doctors List">
+  <ion-content>
+  	<label class="item item-input">
+	    	<input type="text" placeholder="Enter Name or Number for Search" ng-model="searchText" name="name">
+	</label>
+    <ion-list ng-if="arr.length > 0" can-swipe="true">
+	    <ion-item class="item item-icon-left item-icon-right" ng-click="details(data.name,data.number)" ng-repeat="data in arr | filter:searchText">
+	      <i class="icon ion-person"></i>
+	       <strong>{{data.name}} {{data.lastname}}</strong> <br />
+	        {{data.number}}
+
+	         <ion-option-button class="button-assertive txt" ng-click="delete(data,$index)">
+		      Delete
+		    </ion-option-button>
+		    <ion-option-button class="button-balanced txt" ng-click="edit(data,$index)">
+		      Edit
+		    </ion-option-button>
+	    </ion-item>
+	</ion-list>
+	<div ng-if="arr.length == 0">
+		<h1 align="center">No data</h1>
+	</div>
+  </ion-content>
+</ion-view>

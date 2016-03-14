@@ -1,0 +1,43 @@
+<style> 
+	.tabs { 
+		display: none; 
+	}
+
+	.hide-tabs .has-tabs { 
+		bottom: 0px;
+	}
+	.cust-list{
+		margin-bottom: 0px;
+	}
+</style>
+<ion-view title="{{selectedName}}" class="hide-tabs">
+  <ion-content>
+	<!-- <div class="list cust-list" ng-repeat="data in arr">
+	  	<div class="item" >
+	        <strong>{{data.name}} </strong>
+	        <p>Name:</p>
+	   	</div>
+
+	   	<div class="item" >
+	   		<strong>{{data.number}}</strong>
+	         <p>Number:</p>
+	 	</div>
+	</div> -->
+
+	<div class="myCalendar" id="myCalendar-1"></div>
+
+	<ion-radio ng-repeat="item in shift" ng-value="item.value" ng-model="data.shift" >
+          {{ item.text }}
+    </ion-radio>
+
+    <ion-checkbox ng-repeat="item in wordnumber" ng-model="item.checked" ng-checked="item.checked">
+		{{ item.text }}
+	</ion-checkbox>
+
+	<button class="button button-block button-positive" ng-click="add()">
+	  Submit
+	</button>
+	</div>
+
+  </ion-content>
+</ion-view>

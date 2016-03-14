@@ -1,0 +1,86 @@
+<style> 
+	.tabs { 
+		display: none; 
+	}
+	.hide-tabs .has-tabs { 
+		bottom: 0px;
+	}
+	.mrg{
+		background-color: rgb(183, 247, 183);
+	}
+	.eve{
+		background-color: blanchedalmond;
+	}
+	.nit{
+		background-color: aliceblue;
+	}
+</style>
+<ion-view title="{{selecteddate}} {{day}}" class="hide-tabs" >
+  <ion-content>
+	<div class="list">
+		<div class="item item-divider mrg">
+		  Morning Shift
+		</div>
+		<ion-list can-swipe="true">
+			<ion-item  class="item item-icon-left item-icon-right" ng-repeat="data in morning">
+			  <strong>{{data.name}}: </strong>
+			  	{{data.word}}
+
+			<ion-option-button class="button-assertive txt" ng-click="delete(data,$index)">
+			      Delete
+			</ion-option-button>
+		    <ion-option-button class="button-balanced txt" ng-click="edit(data,$index)">
+		      Edit
+		    </ion-option-button>
+
+			</ion-item >
+		</ion-list>
+
+		<div class="item item-divider eve">
+		  Evening Shift
+		</div>
+
+		<!-- <div class="item" ng-repeat="data in evening">
+		  <strong>{{data.name}}</strong>
+		  {{data.word}}
+		</div> -->
+
+		<ion-list can-swipe="true">
+			<ion-item  class="item item-icon-left item-icon-right" ng-repeat="data in evening">
+			  <strong>{{data.name}}: </strong>
+			  	{{data.word}}
+
+			<ion-option-button class="button-assertive txt" ng-click="delete(data,$index)">
+			      Delete
+			</ion-option-button>
+		    <ion-option-button class="button-balanced txt" ng-click="edit(data,$index)">
+		      Edit
+		    </ion-option-button>
+
+			</ion-item >
+		</ion-list>
+
+		<div class="item item-divider nit">
+		  Night Shift
+		</div>
+
+		<ion-list can-swipe="true">
+			<ion-item  class="item item-icon-left item-icon-right" ng-repeat="data in night">
+			  <strong>{{data.name}}: </strong>
+			  	{{data.word}}
+
+			<ion-option-button class="button-assertive txt" ng-click="delete(data,$index)">
+			      Delete
+			</ion-option-button>
+		    <ion-option-button class="button-balanced txt" ng-click="edit(data,$index)">
+		      Edit
+		    </ion-option-button>
+
+			</ion-item >
+		</ion-list>
+
+
+
+	</div>
+  </ion-content>
+</ion-view>

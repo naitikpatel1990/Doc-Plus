@@ -1,0 +1,52 @@
+<style> 
+	.tabs { 
+		display: none; 
+	}
+
+	.hide-tabs .has-tabs { 
+		bottom: 0px;
+	}
+	.cust-list{
+		margin-bottom: 0px;
+	}
+	.txt{
+		line-height: 70px !important;
+	}
+</style>
+<ion-view title="Search By ward" class="hide-tabs">
+  <ion-content>
+  <div class="list" ng-if="arr.length > 0">
+    	<label class="item item-input">
+	    	<input type="text" placeholder="Enter Name" ng-model="searchText.word" name="name">
+	 	</label>
+	 <ion-list ng-if="arr.length > 0" can-swipe="true">
+	    <ion-item class="item item-icon-left item-icon-right" ng-repeat="data in arr | filter:searchText">
+	      <i class="icon ion-person"></i>
+	       <strong>{{data.name}}</strong> <br />
+	        {{data.date}} {{data.shift}} {{data.word}}
+	         <ion-option-button class="button-assertive txt" ng-click="delete(data,$index)">
+		      Delete
+		    </ion-option-button>
+		    <ion-option-button class="button-balanced txt" ng-click="edit(data,$index)">
+		      Edit
+		    </ion-option-button>
+	    </ion-item>
+	</ion-list>
+	</div>
+
+	<!-- <div class="list" ng-if="arr.length > 0">
+    	<label class="item item-input">
+	    	<input type="text" placeholder="Enter Ward Name" ng-model="searchText.word" name="name">
+	 	</label>
+	    <div class="item item-icon-left item-icon-right" ng-repeat="data in arr | filter:searchText">
+	      <i class="icon ion-person"></i>
+	       <strong>{{data.name}}</strong> <br />
+	        {{data.date}} {{data.shift}} {{data.word}}
+	    </div>
+	</div> -->
+	<div ng-if="arr.length == 0">
+		<h1 align="center">No data</h1>
+	</div>
+
+  </ion-content>
+</ion-view>

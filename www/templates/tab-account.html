@@ -1,0 +1,28 @@
+ <ion-view title="Add Details">
+  <ion-content>
+
+  	<form name="myForm">
+	   <div class="list list-inset">
+	   		<p>
+		   		<label class="item item-input">
+			    	<input type="text" placeholder="Enter First Name" ng-model="user.name" name="name" required>
+			 	</label>
+			</p>
+
+			<p>
+			 	<label class="item item-input">
+			    	<input type="text" placeholder="Enter Last Name" ng-model="user.lastname" name="name">
+			 	</label>
+			</p>
+		 	
+			<p>
+			 	<label class="item item-input">
+			    	<input type="number" placeholder="Enter Phone Number" ng-model="user.number" name="number">
+			 	</label>
+			 </p>
+		    <submit ng-click="update()" class="button button-block button-positive">Save</submit>
+		</div>
+	</form>
+
+  </ion-content>
+</ion-view>

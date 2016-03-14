@@ -1,0 +1,41 @@
+<style> 
+	.tabs { 
+		display: none; 
+	}
+
+	.hide-tabs .has-tabs { 
+		bottom: 0px;
+	}
+	.cust-list{
+		margin-bottom: 0px;
+	}
+	.txt{
+		line-height: 70px !important;
+	}
+</style>
+<ion-view title="Search By Shift" class="hide-tabs">
+  <ion-content>
+	<ion-checkbox ng-model="Filter.Morning" ng-true-value="Morning"  data-ng-false-value=''>Morning</ion-checkbox>
+    <ion-checkbox ng-model="Filter.Evening" ng-true-value="Evening"  data-ng-false-value=''>Evening</ion-checkbox>
+    <ion-checkbox ng-model="Filter.Night" ng-true-value="Night"  data-ng-false-value=''>Night</ion-checkbox>
+
+	<ion-list ng-if="arr.length > 0" can-swipe="true">
+	    <ion-item class="item item-icon-left item-icon-right" ng-repeat="data in arr | filter:showShift">
+	      <i class="icon ion-person"></i>
+	       <strong>{{data.name}}</strong> <br />
+	        {{data.date}} {{data.shift}} {{data.word}}
+	         <ion-option-button class="button-assertive txt" ng-click="delete(data,$index)">
+		      Delete
+		    </ion-option-button>
+		    <ion-option-button class="button-balanced txt" ng-click="edit(data,$index)">
+		      Edit
+		    </ion-option-button>
+	    </ion-item>
+	</ion-list>
+	
+	<div ng-if="arr.length == 0">
+		<h1 align="center">No data</h1>
+	</div>
+
+  </ion-content>
+</ion-view>
